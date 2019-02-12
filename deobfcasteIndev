@@ -81,6 +81,7 @@ CLASS net/minecraft/a/a/g net/minecraft/game/level/Level
 	FIELD y player Lnet/minecraft/a/c/e;
 	METHOD a load ()V
 	METHOD a playSound (FFFLjava/lang/String;FF)V
+	METHOD a cotainers (IIILnet/minecraft/a/a/b/a/a;)V
 	METHOD a generate (III[B[B)V
 	METHOD a spawnParticle (Ljava/lang/String;FFFFFF)V
 	METHOD a spawnEntity (Lnet/minecraft/a/c/b;)V
