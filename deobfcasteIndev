@@ -1,0 +1,38 @@
+CLASS com/nbt/NBT
+	FIELD a var666 Ljava/util/Map;
+CLASS com/nbt/NBTLong
+	FIELD a var70 J
+CLASS net/minecraft/game/item/Item
+	FIELD ar stack I
+	METHOD b var7 ()I
+	METHOD c var55 ()I
+	METHOD d var8 ()I
+CLASS net/minecraft/game/block/Block
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/game/level/Level
+	FIELD a var2 I
+	FIELD b var44 I
+	FIELD c var1 I
+	FIELD d var444 [B
+	FIELD e var447 [B
+	FIELD p var8 [I
+CLASS net/minecraft/game/block/BlockFire
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/game/block/BlockGears
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/game/block/BlockTorch
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/client/MinecraftApplet
+CLASS net/minecraft/game/block/BlockFlower
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/game/block/BlockLiquid
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/game/item/ItemPainting
+	METHOD <init> (I)V
+		ARG 0 var1
+CLASS net/minecraft/game/block/BlockFarmland
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/game/block/BlockLiquidBase
+	METHOD a var4 (III)Lnet/minecraft/level/something/Something5;
+CLASS net/minecraft/game/entity/other/EntityPainting
+	METHOD c unknownflied ()Z
