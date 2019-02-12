@@ -1,4 +1,7 @@
 CLASS a/a net/minecraft/game/MathHelper
+	METHOD a modeler (F)F
+	METHOD b math (F)F
+	METHOD c call (F)F
 CLASS a/b net/minecraft/client/gui/GuiLoading
 	METHOD a setString (Ljava/lang/String;)V
 	METHOD b setString2 (Ljava/lang/String;)V
@@ -185,10 +188,12 @@ CLASS net/minecraft/a/b/i net/minecraft/game/item/Item
 	METHOD <init> (I)V
 		ARG 0 id
 	METHOD a getHardness ()I
+	METHOD a texture (I)Lnet/minecraft/a/b/i;
 	METHOD a mineBlock (Lnet/minecraft/a/a/b/x;)Z
 	METHOD a onRightClick (Lnet/minecraft/a/b/k;Lnet/minecraft/a/a/g;IIII)Z
 	METHOD a useItem (Lnet/minecraft/a/b/k;Lnet/minecraft/a/a/g;Lnet/minecraft/a/c/e/a;)Lnet/minecraft/a/b/k;
 	METHOD b getBlockMiningSpeed (Lnet/minecraft/a/a/b/x;)F
+	METHOD c MaxStackSize ()I
 CLASS net/minecraft/a/b/j net/minecraft/game/item/ItemArmor
 CLASS net/minecraft/a/b/k net/minecraft/game/item/ItemStack
 	FIELD a size I
@@ -213,7 +218,7 @@ CLASS net/minecraft/a/b/p net/minecraft/game/item/ItemFood
 	FIELD as healAmount I
 	METHOD a useItem (Lnet/minecraft/a/b/k;Lnet/minecraft/a/a/g;Lnet/minecraft/a/c/e/a;)Lnet/minecraft/a/b/k;
 CLASS net/minecraft/a/c/a net/minecraft/game/entity/other/EntityPainting
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a onHit (Lnet/minecraft/a/c/b;I)Z
 	METHOD b LoadNBT (Lcom/a/a/c;)V
@@ -237,7 +242,10 @@ CLASS net/minecraft/a/c/b net/minecraft/game/entity/Entity
 	FIELD n pitch F
 	FIELD o yaw F
 	FIELD v eyeHeight F
-	METHOD a getName ()Ljava/lang/String;
+	FIELD w var1 F
+	FIELD x var2 F
+	METHOD a getEntityID ()Ljava/lang/String;
+	METHOD a size (FF)V
 	METHOD a dropItem (IIF)Lnet/minecraft/a/c/c/b;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a onHit (Lnet/minecraft/a/c/b;I)Z
@@ -245,7 +253,7 @@ CLASS net/minecraft/a/c/b net/minecraft/game/entity/Entity
 	METHOD b_ update ()V
 	METHOD c saveNBT (Lcom/a/a/c;)V
 	METHOD d loadNBT (Lcom/a/a/c;)V
-CLASS net/minecraft/a/c/c net/minecraft/game/entity/Entity_
+CLASS net/minecraft/a/c/c net/minecraft/game/entity/UnknownLiving
 CLASS net/minecraft/a/c/d net/minecraft/game/entity/other/Paintings
 	FIELD a KEBAB Lnet/minecraft/a/c/d;
 	FIELD b NAME Ljava/lang/String;
@@ -277,12 +285,15 @@ CLASS net/minecraft/a/c/e net/minecraft/game/entity/EntityLiving
 	FIELD Y hurtTime I
 	FIELD ab deathTime I
 	FIELD ac attackTime I
-	METHOD a getName ()Ljava/lang/String;
+	FIELD am speed F
+	METHOD a getEntityID ()Ljava/lang/String;
+	METHOD a size (FF)V
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a onHit (Lnet/minecraft/a/c/b;I)Z
 	METHOD b heal (I)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
 	METHOD b_ update ()V
+	METHOD c GetDrop ()I
 	METHOD f updateEntity ()V
 	METHOD g getLivingSound ()Ljava/lang/String;
 	METHOD h getHurtSound ()Ljava/lang/String;
@@ -291,6 +302,14 @@ CLASS net/minecraft/a/d/a net/minecraft/level/something/Something4
 CLASS net/minecraft/a/d/b net/minecraft/level/something/Something5
 CLASS net/minecraft/a/d/c net/minecraft/level/something/Something6
 CLASS net/minecraft/a/a/a/a net/minecraft/level/something/Something7
+	FIELD a var1 I
+	FIELD b var2 I
+	FIELD c var3 I
+	FIELD d var4 I
+	FIELD e var6 I
+	FIELD j var5 Z
+	METHOD a someting ()Z
+	METHOD a func1 (Lnet/minecraft/a/a/a/a;)F
 CLASS net/minecraft/a/a/a/b net/minecraft/level/something/Something8
 CLASS net/minecraft/a/a/a/c net/minecraft/level/something/Something9
 CLASS net/minecraft/a/a/a/d net/minecraft/level/something/Something10
@@ -504,37 +523,41 @@ CLASS net/minecraft/a/b/a/g net/minecraft/game/recipe/RecipeUseless
 CLASS net/minecraft/a/b/a/h net/minecraft/game/recipe/RecipeSword
 CLASS net/minecraft/a/b/a/i net/minecraft/game/recipe/RecipeComparator
 CLASS net/minecraft/a/c/a/a net/minecraft/game/entity/monster/EntityGiant
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 CLASS net/minecraft/a/c/a/b net/minecraft/game/entity/monster/EntitySpider
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
+	METHOD c GetDrop ()I
 CLASS net/minecraft/a/c/a/c net/minecraft/game/entity/monster/EntitySkeleton
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
+	METHOD c GetDrop ()I
 	METHOD f updateEntity ()V
 CLASS net/minecraft/a/c/a/d net/minecraft/game/entity/monster/EntityCreeper
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
-CLASS net/minecraft/a/c/a/e net/minecraft/game/entity/monster/EntityMonster
+	METHOD c GetDrop ()I
+CLASS net/minecraft/a/c/a/e net/minecraft/game/entity/monster/EntityHuman
 	FIELD a maxHealth I
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a onHit (Lnet/minecraft/a/c/b;I)Z
 	METHOD b LoadNBT (Lcom/a/a/c;)V
 	METHOD b_ update ()V
 	METHOD f updateEntity ()V
 CLASS net/minecraft/a/c/a/f net/minecraft/game/entity/monster/EntityZombie
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
+	METHOD c GetDrop ()I
 	METHOD f updateEntity ()V
 CLASS net/minecraft/a/c/b/a net/minecraft/game/entity/animal/EntityAnimal
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
 CLASS net/minecraft/a/c/b/b net/minecraft/game/entity/animal/EntitySheep
 	FIELD a sheared Z
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a onHit (Lnet/minecraft/a/c/b;I)Z
 	METHOD b LoadNBT (Lcom/a/a/c;)V
@@ -542,31 +565,32 @@ CLASS net/minecraft/a/c/b/b net/minecraft/game/entity/animal/EntitySheep
 	METHOD h getHurtSound ()Ljava/lang/String;
 	METHOD i getDeathSound ()Ljava/lang/String;
 CLASS net/minecraft/a/c/b/c net/minecraft/game/entity/animal/EntityPig
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
+	METHOD c GetDrop ()I
 	METHOD g getLivingSound ()Ljava/lang/String;
 	METHOD h getHurtSound ()Ljava/lang/String;
 	METHOD i getDeathSound ()Ljava/lang/String;
 CLASS net/minecraft/a/c/c/a net/minecraft/game/entity/other/EntityTNT
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
 	METHOD b_ update ()V
 CLASS net/minecraft/a/c/c/b net/minecraft/game/entity/other/EntityItem
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a onHit (Lnet/minecraft/a/c/b;I)Z
 	METHOD b LoadNBT (Lcom/a/a/c;)V
 	METHOD b_ update ()V
 CLASS net/minecraft/a/c/d/a net/minecraft/game/entity/other/EntityArrow
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
 	METHOD b_ update ()V
 CLASS net/minecraft/a/c/e/a net/minecraft/game/entity/player/EntityPlayer
 	FIELD b inventory Lnet/minecraft/a/c/e/b;
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a showInventory (Lnet/minecraft/a/b;)V
 	METHOD a onHit (Lnet/minecraft/a/c/b;I)Z
@@ -629,7 +653,9 @@ CLASS net/minecraft/client/d net/minecraft/client/Minecraft
 	FIELD M applet Lnet/minecraft/client/MinecraftApplet;
 	FIELD d level Lnet/minecraft/a/a/g;
 	FIELD f player Lnet/minecraft/client/g/a;
+	FIELD m texturemanager Lnet/minecraft/client/a/k;
 	FIELD p currentGui Lnet/minecraft/client/a;
+	METHOD a tick (I)V
 	METHOD a generateLevel (IIII)V
 	METHOD a setLevel (Lnet/minecraft/a/a/g;)V
 	METHOD a displayGui (Lnet/minecraft/client/c/i;)V
@@ -645,13 +671,13 @@ CLASS net/minecraft/client/f net/minecraft/client/PlayerLoader
 CLASS net/minecraft/client/g net/minecraft/client/Smthng1
 CLASS net/minecraft/client/h net/minecraft/client/Option
 CLASS net/minecraft/client/i net/minecraft/client/UselessClass
-CLASS net/minecraft/client/j net/minecraft/client/SoundDownloader
+CLASS net/minecraft/client/j net/minecraft/client/ResourceDownloadThread
 CLASS net/minecraft/client/k net/minecraft/client/Smtng2
 CLASS net/minecraft/client/l net/minecraft/client/BlockList
 CLASS net/minecraft/client/m net/minecraft/client/CursorMover
-CLASS net/minecraft/client/n net/minecraft/client/SomeThread
+CLASS net/minecraft/client/n net/minecraft/client/SleepThread
 CLASS net/minecraft/client/o net/minecraft/client/OSValidator
-CLASS net/minecraft/client/p net/minecraft/client/SomeError
+CLASS net/minecraft/client/p net/minecraft/client/MinecraftError
 CLASS net/minecraft/client/q net/minecraft/client/Options
 	FIELD i keyForward Lnet/minecraft/client/h;
 	FIELD j keyLeft Lnet/minecraft/client/h;
@@ -711,6 +737,7 @@ CLASS net/minecraft/client/a/g net/minecraft/client/renderer/RenderSomething
 CLASS net/minecraft/client/a/h net/minecraft/client/renderer/RenderSomething2
 CLASS net/minecraft/client/a/i net/minecraft/client/renderer/RenderSomething3
 CLASS net/minecraft/client/a/k net/minecraft/client/renderer/renderer/RenderSomething3
+	METHOD a getTexture (Ljava/lang/String;)I
 CLASS net/minecraft/client/a/l net/minecraft/client/renderer/PlayerComparator2
 CLASS net/minecraft/client/b/a net/minecraft/client/model/ModelSheep
 CLASS net/minecraft/client/b/b net/minecraft/client/model/ModelQuadruped
@@ -723,6 +750,7 @@ CLASS net/minecraft/client/b/b net/minecraft/client/model/ModelQuadruped
 	METHOD a setRoatationsAndSizes (FFFFFF)V
 	METHOD b animate (FFFFFF)V
 CLASS net/minecraft/client/b/c net/minecraft/client/model/Cube
+	FIELD d var3 Z
 	METHOD a setRotationPoints (FFF)V
 	METHOD a setSizeAndRotation (FFFIIIF)V
 CLASS net/minecraft/client/b/d net/minecraft/client/model/ModelSheepFur
@@ -750,7 +778,7 @@ CLASS net/minecraft/client/b/k net/minecraft/client/model/ModelCreeper
 CLASS net/minecraft/client/b/l net/minecraft/client/model/Model
 	METHOD a setRoatationsAndSizes (FFFFFF)V
 	METHOD b animate (FFFFFF)V
-CLASS net/minecraft/client/b/m net/minecraft/client/models/ModelSkeleton
+CLASS net/minecraft/client/b/m net/minecraft/client/model/ModelSkeleton
 CLASS net/minecraft/client/c/a net/minecraft/client/gui/Button2
 CLASS net/minecraft/client/c/b net/minecraft/client/gui/GuiPause
 	METHOD a drawGui (IIF)V
@@ -839,7 +867,7 @@ CLASS net/minecraft/client/f/k net/minecraft/client/particle/ParticleBase
 	FIELD O z F
 	FIELD a x F
 	FIELD b y F
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a renderParticle (Lnet/minecraft/client/a/d;FFFFFF)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
@@ -847,7 +875,7 @@ CLASS net/minecraft/client/f/k net/minecraft/client/particle/ParticleBase
 CLASS net/minecraft/client/g/a net/minecraft/client/player/EntityLocalPlayer
 	FIELD a controller Lnet/minecraft/client/g/b;
 	FIELD an minecraft Lnet/minecraft/client/d;
-	METHOD a getName ()Ljava/lang/String;
+	METHOD a getEntityID ()Ljava/lang/String;
 	METHOD a SaveNBT (Lcom/a/a/c;)V
 	METHOD a showInventory (Lnet/minecraft/a/b;)V
 	METHOD b LoadNBT (Lcom/a/a/c;)V
@@ -881,8 +909,13 @@ CLASS net/minecraft/client/a/b/e net/minecraft/client/renderer/Something3
 CLASS net/minecraft/client/a/c/a net/minecraft/client/renderer/block/SpecialTextureWater
 	METHOD a render ()V
 CLASS net/minecraft/client/a/c/b net/minecraft/client/renderer/block/SpecialTexture
+	FIELD a var4 [B
 	METHOD a render ()V
 CLASS net/minecraft/client/a/c/c net/minecraft/client/renderer/block/SpecialTextureGears
+	FIELD e var995 I
+	FIELD f var54 [I
+	FIELD g var3 [I
+	FIELD h var2 I
 	METHOD a render ()V
 CLASS net/minecraft/client/a/c/d net/minecraft/client/renderer/block/SpecialTextureLava
 	METHOD a render ()V
