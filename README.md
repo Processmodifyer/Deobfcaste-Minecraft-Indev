@@ -1,3 +1,8 @@
 # minecraft-indev Debobfcaster
-Creating deobfuscation for Minecraft Indev 02/23/2010 OUTDATED
+Creating deobfuscation for Minecraft Indev 02/23/2010 
+
+OUTDATED
+
 how fully deobfucasted, i will make Minecraft indev Source code soon
+
+new location https://github.com/Arenovas/Minecraft-Indev-Mappings
